@@ -315,7 +315,7 @@ int main(int argc, char *argv[])
 	for (blob = pm_list, i = 0; blob; blob = blob->next, i++)
 	{
 		/* mark as THUMB / ARM based on entry_addr bit 0 */
-		st.st_name = (entry_addr & 1) ? 1 : 2; /* point to either $t or $a in strtab */
+		st.st_name = (entry_addr & 1) ? 1 : 4; /* point to either $t or $a in strtab */
 		st.st_value = ( (entry_addr >= blob->address) && (entry_addr < (blob->address + blob->count)) ) ? (entry_addr & ~1) : blob->address;
 		st.st_size = 0;
 		st.st_info = 0;
